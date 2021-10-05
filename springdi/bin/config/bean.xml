@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id = "dao" class = "di_basic.MemberDAO"/>
+	<bean id = "insa" class = "di_basic.InsaImpl">
+		<constructor-arg>
+			<ref bean = "dao"/>
+		</constructor-arg>
+	</bean>
+	<bean id = "logic" class = "di_constructor01.LogicImpl" />
+	<bean id = "cloud" class = "di_constructor01.CloudLogicImpl"/>
+	<bean id = "service" class = "di_constructor01.MyServiceImpl">
+		<constructor-arg value = "장동건"/>
+		<constructor-arg>
+			<value>안녕</value>
+		</constructor-arg>
+		<constructor-arg ref = "logic" />
+	</bean>
+	<bean id = "dice" class = "di_constructor02.Dice"/>
+	<bean id = "player" class = "di_constructor02.Player">
+		<constructor-arg ref = "dice"/>	
+	</bean>
+	<bean id = "dao1" class = "di_constructor03.MysqlArticleDAO"/>
+	<bean id = "dao2" class = "di_constructor03.OracleArticleDAO"/>
+	<bean id = "mgr" class = "di_constructor03.WriteArticleMgr">
+		<constructor-arg ref = "dao2"/>
+	</bean>
+	<bean id = "speaker" class = "di_constructor.book.exam.AppleSpeaker"/>
+	<!-- <been id = "speaker" class = "di_constructor.book.exam.SonySpeaker"/> -->
+	<bean id = "tv" class = "di_constructor.book.exam.SamsungTV">
+		<constructor-arg ref = "speaker"/>
+	</bean>
+<!-- 	<bean id = "tv" class = "di_constructor.book.exam.LgTV">
+		<constructor-arg ref = "apple"/>
+	</bean>-->
+	 </beans>
