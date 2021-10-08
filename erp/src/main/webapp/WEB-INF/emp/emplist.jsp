@@ -1,3 +1,5 @@
+<%@page import="multi.erp.emp.EmpVO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -16,7 +18,10 @@
 </script>
 </head>
 <body>
-	<h3>JSTL게시판</h3>
+	<% ArrayList<EmpVO> userlist = (ArrayList<EmpVO>) request.getAttribute("userlist");
+		int size = userlist.size();
+	%>
+	<h3>사원목록보기</h3>
 	<div style="padding-top: 30px">
 		<div class="col-md-3" style="padding-bottom: 10px">
 		    구분:
@@ -32,21 +37,24 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<th>번호</th>
-					<th>제목</th>
-					<th>작성자</th>
-					<th>등록일</th>
+					<th>사번</th>
+					<th>성명</th>
+					<th>부서코드</th>
+					<th>주소</th>
 				</tr>
 			</thead>
 			<tbody>
+				<%for(int i = 0 ; i < size ; i++ ){
+					EmpVO user = userlist.get(i);
+					%>
 					<tr>
-						<td></td>
-						<td></a></td>
+						<td><%= user.getId() %></td>
+						<td><%= user.getName() %></a></td>
 					
-						<td></td>
-						<td></td>
+						<td><%= user.getDeptno() %></td>
+						<td><%= user.getAddr() %></td>
 					</tr>
-			
+					<%} %>
 			</tbody>
 		</table>
 	</div>

@@ -15,7 +15,7 @@
 <body>
 	<div class="container-fluid">
 			<form role="form" class="form-horizontal"
-				action="erp/src/insert.do" method="POST" 
+				action="/erp/emp/insert.do" method="POST" 
 				name="myform">
 				<fieldset>
 					<div id="legend">
@@ -54,12 +54,6 @@
 						<span id="checkVal"></span>
 					</div>
 
-
-
-				
-
-
-					
 					<div class="form-group">
 						<!-- 패스워드-->
 						<label class="control-label col-sm-2" for="pass">패스워드</label>
@@ -95,7 +89,7 @@
 						<div class="col-sm-3 col-sm-offset-2">
 							<input type="submit" value="가입하기" class="btn btn-success"/>
 						</div>
-						<a href = "/serverweb/member/search.do?action=LIST">회원목록조회하기</a>
+						<a href = "">회원목록조회하기</a>
 					</div>
 				</fieldset>
 			</form>

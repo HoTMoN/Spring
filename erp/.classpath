@@ -26,11 +26,5 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/sosgk/Downloads/jsoup-1.14.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/sosgk/Downloads/spring-expression-4.2.4.RELEASE.jar"/>
-	<classpathentry kind="lib" path="C:/Users/sosgk/Downloads/commons-logging-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/sosgk/Downloads/spring-context-4.2.4.RELEASE.jar"/>
-	<classpathentry kind="lib" path="C:/Users/sosgk/Downloads/spring-beans-4.2.4.RELEASE.jar"/>
-	<classpathentry kind="lib" path="C:/Users/sosgk/Downloads/spring-core-4.2.4.RELEASE.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

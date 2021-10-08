@@ -11,5 +11,5 @@
 	<view-controller path="/emp/loginPage.do" view-name="login"/>
 	<view-controller path="/board/insertPage.do" view-name="board/insert"/>
 	<view-controller path="/dept/insertPage.do" view-name="dept/insert"/>
-	<view-controller path="/emp/insertPage.do" view-name="dept/insert"/>
+	<view-controller path="/emp/insertPage.do" view-name="emp/insert"/>
 </beans:beans>

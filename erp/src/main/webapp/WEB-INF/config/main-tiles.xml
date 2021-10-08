@@ -18,7 +18,11 @@
 	<definition name = "index" extends = "indexTemplate">
 	</definition>
 	
-	<definition name = "Login" extends = "mainTemplate">
-	</definition>	
-
+	<definition name = "login" extends = "mainTemplate">
+	</definition>
+	
+	<definition name = "board/list" extends = "mainTemplate">
+		<put-attribute name = "menu" value = "/WEB-INF/menu/board_menu.jsp"></put-attribute>
+		<put-attribute name = "content" value = "/WEB-INF/board/boardlist.jsp"></put-attribute>
+	</definition>
 </tiles-definitions>

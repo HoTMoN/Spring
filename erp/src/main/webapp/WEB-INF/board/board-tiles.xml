@@ -9,7 +9,7 @@
 		<put-attribute name = "content" value = "/WEB-INF/board/boardlist.jsp"></put-attribute>
 	</definition>
 	
-	<definition name = "board/insert" extends = "mainTemplate">
+ 	<definition name = "board/insert" extends = "mainTemplate">
 		<put-attribute name = "menu" value = "/WEB-INF/menu/board_menu.jsp"></put-attribute>
 		<put-attribute name = "content" value = "/WEB-INF/board/board_write.jsp"></put-attribute>
 	</definition>

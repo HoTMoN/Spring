@@ -12,8 +12,8 @@
 		<a href="#" class="list-group-item">경조사</a>
 		<a href="#" class="list-group-item">사내소식</a>
 		<a href="#"	class="list-group-item">회사일정</a>
-		<a href="/erp/dept/boardPage.do"	class="list-group-item">회원가입</a>
-		<a href="/erp/board/boardPage.do"	class="list-group-item">게시판</a>
+		<a href="/erp/dept/insertPage.do"	class="list-group-item">부서등록</a>
+		<a href="/erp/board/insertPage.do"	class="list-group-item">게시판</a>
 	</div>
 </body>
 </html>
