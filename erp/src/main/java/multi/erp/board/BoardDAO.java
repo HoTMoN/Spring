@@ -16,4 +16,6 @@ public interface BoardDAO {
 	int update(BoardVO board);
 	//게시글삭제
 	int delete(String board_no);
+	//카테고리별 검색
+	List<BoardVO> categorySearch(String category);
 }

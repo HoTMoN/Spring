@@ -49,7 +49,7 @@
 					%>
 					<tr>
 						<td><%= user.getId() %></td>
-						<td><%= user.getName() %></a></td>
+						<td><%= user.getName() %></td>
 					
 						<td><%= user.getDeptno() %></td>
 						<td><%= user.getAddr() %></td>

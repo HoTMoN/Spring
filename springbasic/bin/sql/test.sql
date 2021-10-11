@@ -7,4 +7,4 @@ group by d.dname;
 
 update MEMBER
 set point = 1000
-where id = 'jang';
+where id = 'hong';

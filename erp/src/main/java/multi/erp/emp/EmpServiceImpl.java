@@ -18,8 +18,12 @@ public class EmpServiceImpl implements EmpService {
 
 	@Override
 	public List<EmpVO> getMemberList() {
-		
 		return dao.getMemberList();
+	}
+
+	@Override
+	public boolean idCheck(String id) {
+		return dao.idCheck(id);
 	}
 
 }

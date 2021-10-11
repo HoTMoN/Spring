@@ -1,3 +1,5 @@
+<%@page import="multi.erp.board.BoardVO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -12,10 +14,23 @@
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-
+	//자바스크립트에서 컨트롤러에서 공유한 데이터를 꺼내기
+	category = "${category}" ;//EL표기법으로 공유한 데이터를 꺼내기
+	//category설정하기
+	$(document).ready(function(){
+		$("#category").val(category).attr("selected", "selected")
+		//<select>에서 선택이 바뀔때마다 change이벤트 발생 -> change이벤트가 발생하면 /board/list/do를 호출하면서 category파라미터를 넘김
+		$("#category").change(function(){
+			location.href = "/erp/board/list.do?category="
+					+encodeURI($(this).val())
+		});
+	});
 </script>
 </head>
 <body>
+	<% ArrayList<BoardVO> boardlist = (ArrayList<BoardVO>) request.getAttribute("boardlist");
+		int size = boardlist.size();
+	%>
 	<h3>JSTL게시판</h3>
 	<div style="padding-top: 30px">
 		<div class="col-md-3" style="padding-bottom: 10px">
@@ -39,14 +54,17 @@
 				</tr>
 			</thead>
 			<tbody>
+				<%for(int i = 0 ; i < size ; i++ ){
+					BoardVO board = boardlist.get(i);
+					%>
 					<tr>
-						<td></td>
-						<td></a></td>
+						<td><%= board.getBoard_no() %></td>
+						<td><%= board.getTitle() %></td>
 					
-						<td></td>
-						<td></td>
+						<td><%= board.getId() %></td>
+						<td><%= board.getWrite_date() %></td>
 					</tr>
-			
+					<%} %>
 			</tbody>
 		</table>
 	</div>
@@ -58,7 +76,7 @@
 			<option value="write_date">작성일</option>
 		</select> <input type="text" name="search" /> <input type="submit" value="검색">
 		<ul class="nav navbar-nav navbar-right">
-			<li><a href="/erp/board/user/insertView.do" style="text-align: right;">글쓰기</a></li>
+			<li><a href="/erp/board/insertPage.do" style="text-align: right;">글쓰기</a></li>
 		</ul>
 	</form>
 

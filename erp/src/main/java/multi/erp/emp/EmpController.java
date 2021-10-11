@@ -30,4 +30,18 @@ public class EmpController {
 		return mav;
 		
 	}
+	@RequestMapping("/emp/idcheck.do")
+	public ModelAndView idCheck(String id) {
+		ModelAndView mav = new ModelAndView();
+		boolean state = service.idCheck(id);
+		String result = "";
+		if(state) {//사용자가 입력한 id가 db에 이미 저장되어 있다는 의미
+			result = "사용 불가능한 아이디";
+		}else {
+			result = "사용 가능한 아이디";
+		}
+		mav.setViewName("emp/insert");
+		mav.addObject("result", result);
+		return mav;
+	}
 }

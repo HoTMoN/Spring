@@ -31,3 +31,25 @@ DAO에서 DB작업을 위해서 처리되던 중복된 내용을 모두 MyBatis에서 처리한다.
 		- SqlSession을 만들기 위해서 MyBatis의 설정 파일의 정보를 넘겨준다.
 	3) MyBatis핵심클래스인 SqlSession사용할 수 있도록 빈으로 등록
 		- DB연동을 위한 기능을 제공하는 클래스
+		
+[기능추가하기]
+0. mapper파일 작성하기
+1. 새로운 테이블을 가지고 작업을 한다면 mybatis-config.xml파일에 VO파일과 mapper파일 등록
+2. DAOImpl(BoardDAOImpl), Controller(BoardController), ServiceImpl(BoardServiceImpl)만들고 injection시켜서 연결하기
+	=> Emp참고
+	
+	1) 게시글 등록
+		/board/insert.do
+	2) 목록보기
+		/board/list.do
+3. Controller에서 BoardServiceImpl을 호출할 수 있도록 작업
+4. BoardServiceImpl에서 BoardDAOImpl을 호출할 수 있도록 작업
+5. BoardController에서 뷰에서 넘겨준 BoardVO 객체를 추출해서 service의 메소드를 호출하면서 넘기기
+6. mapper에 <insert><select> 추가
+7. tiles설정파일에 뷰 등록
+	board/insert
+	board/list
+	
+8. 게시글등록이 끝나면 board/list.do로 redirect
+9. 게시글목록보기 =>  board/list로 뷰를 설정
+	=> Emp처럼 boardlist.jsp수정해서 게시글목록 확인하기
