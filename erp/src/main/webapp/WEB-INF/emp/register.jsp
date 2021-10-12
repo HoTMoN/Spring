@@ -14,6 +14,7 @@
   <script type="text/javascript">
   	$(document).ready(function(){
   		$("#id").on("keyup",function(){
+<<<<<<< HEAD
   			//jQuery에서 Ajax로 요청하기 - get방식
   			//[형식]  $.get(url)
   			//url --> Ajax로 요청할 요청path
@@ -35,6 +36,10 @@
   				},
   				"text");
   		});
+=======
+  			location.href = "/erp/emp/idcheck.do?id="+$("#id").val();
+  		})
+>>>>>>> branch 'master' of http://github.com/HoTMoN/Spring.git
   	});
   	//자바스크립트에서 동기방식으로 요청하기 - 기존에 우리가 웹을 요청해서 응답받아 사용하는 방법
   	//location.href = "/erp/emp/idcheck.do?id="+$("#id").val();  -> 원하는 작업을 표현 불가
@@ -56,8 +61,8 @@
 						<label class="control-label col-sm-2" for="orgcode">부서코드</label>
 						<div class="col-sm-3">
 							<input type="text" id="orgcode" name="deptno"
-								placeholder="부서코드" class="form-control"
-								 required>
+								placeholder="부서코드" class="form-control" 
+								  required>
 						</div>
 					</div>
 

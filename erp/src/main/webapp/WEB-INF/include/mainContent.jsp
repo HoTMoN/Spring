@@ -46,6 +46,7 @@
 					data : {"category":category},
 					success : function(data){
 						alert(data);
+						alert(data[0].title);
 						// 데이터 전송이 성공하면 어떤 방법으로 뷰를 만들 것인지 명시
 					}
 				})// end ajax

@@ -32,6 +32,7 @@ public class EmpController {
 		return mav;
 		
 	}
+<<<<<<< HEAD
 //	//원래 웹을 요청하는 방식 =>emp/insert로 등록한 뷰의 모든, html태그가 서버에서 클라이언트로 모두 전송된다.
 //	@RequestMapping("/emp/idcheck.do")
 //	public ModelAndView idCheck(String id) {
@@ -56,6 +57,12 @@ public class EmpController {
 	//String은 response되는 데이터의 형식 - 어노테이션을 이용해서 response되는 데이터라는 것을 표시
 	@RequestMapping(value = "/emp/idcheck.do", method = RequestMethod.GET,produces = "application/text;charset=utf-8" )
 	public @ResponseBody String idCheck(String id) {
+=======
+	//원래 웹을 요청하는 방식 =>emp/insert로 등록한 뷰의 모든, html태그가 서버에서 클라이언트로 모두 전송된다.
+	@RequestMapping("/emp/idcheck.do")
+	public ModelAndView idCheck(String id) {
+		ModelAndView mav = new ModelAndView();
+>>>>>>> branch 'master' of http://github.com/HoTMoN/Spring.git
 		boolean state = service.idCheck(id);
 		String result = "";
 		if(state) { //사용자가 입력한 id가 db에 이미 저장되어 있다는 의미

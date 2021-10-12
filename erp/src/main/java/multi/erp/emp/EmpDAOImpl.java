@@ -10,17 +10,17 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class EmpDAOImpl implements EmpDAO {
 	@Autowired
-	SqlSession SqlSession;
+	SqlSession sqlSession;
 	@Override
 	public int insert(EmpVO user) {
 		System.out.println("member테이블에 insert:"+user);
-		SqlSession.insert("erp.emp.insert", user);
+		sqlSession.insert("erp.emp.insert", user);
 		return 0;
 	}
 
 	@Override
 	public List<EmpVO> getMemberList() {
-		return SqlSession.selectList("erp.emp.list");
+		return sqlSession.selectList("erp.emp.list");
 	}
 
 	@Override
@@ -28,7 +28,7 @@ public class EmpDAOImpl implements EmpDAO {
 		boolean result = false;
 		//primary key를 비교하는 sql문은 결과가 레코드 하나
 		//=> SqlSession의 메소드 => selectOne
-		EmpVO user = SqlSession.selectOne("erp.emp.idcheck", id);
+		EmpVO user = sqlSession.selectOne("erp.emp.idcheck", id);
 		if(user!=null) {
 			result = true; //아이디가 있으면 true
 		}
