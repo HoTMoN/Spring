@@ -30,6 +30,7 @@ public class EmpController {
 		return mav;
 		
 	}
+	//원래 웹을 요청하는 방식 =>emp/insert로 등록한 뷰의 모든, html태그가 서버에서 클라이언트로 모두 전송된다.
 	@RequestMapping("/emp/idcheck.do")
 	public ModelAndView idCheck(String id) {
 		ModelAndView mav = new ModelAndView();

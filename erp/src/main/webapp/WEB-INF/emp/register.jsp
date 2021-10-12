@@ -14,8 +14,8 @@
   <script type="text/javascript">
   	$(document).ready(function(){
   		$("#id").on("keyup",function(){
-  			location.href = "/erp/emp/idcheck.do";
-  		});
+  			location.href = "/erp/emp/idcheck.do?id="+$("#id").val();
+  		})
   	});
   	
   </script>
@@ -36,8 +36,8 @@
 						<label class="control-label col-sm-2" for="orgcode">부서코드</label>
 						<div class="col-sm-3">
 							<input type="text" id="orgcode" name="deptno"
-								placeholder="부서코드" class="form-control"
-								 required>
+								placeholder="부서코드" class="form-control" 
+								  required>
 						</div>
 					</div>
 

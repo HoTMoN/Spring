@@ -32,8 +32,5 @@ public class IndexController {
 	public String boardlist() {//db연동
 		return "board/list";
 	}
-	@RequestMapping("/menu/insa.do")
-	public String deptlist() {//db연동
-		return "dept/list";
-	}
+	
 }

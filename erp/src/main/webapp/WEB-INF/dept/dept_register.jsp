@@ -53,12 +53,6 @@
 					</div>
 				</div>
 
-
-
-
-
-
-
 				<div class="form-group">
 					<!-- 패스워드-->
 					<label class="control-label col-sm-2" for="pass">관리자</label>
