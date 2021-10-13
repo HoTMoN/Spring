@@ -7,14 +7,16 @@ public class EmpVO {
 	private String addr;
 	private int point;
 	private String deptno;
+	private String img;
 	public EmpVO() {
-		System.out.println("EmpVO의 기본생성자");
+		System.out.println("EmpVo의 기본생성자");
 	}
-	//update용
-	public EmpVO(String id, String addr) {
+
+	//login용
+	public EmpVO(String id, String pass) {
 		super();
 		this.id = id;
-		this.addr = addr;
+		this.pass = pass;
 	}
 
 	//insert용
@@ -25,9 +27,20 @@ public class EmpVO {
 		this.name = name;
 		this.addr = addr;
 		this.deptno = deptno;
+	
 	}
 
 	//select용
+	public EmpVO(String id, String pass, String name, String addr, int point, String deptno,String img) {
+		super();
+		this.id = id;
+		this.pass = pass;
+		this.name = name;
+		this.addr = addr;
+		this.point = point;
+		this.deptno = deptno;
+		this.img = img;
+	}
 	public EmpVO(String id, String pass, String name, String addr, int point, String deptno) {
 		super();
 		this.id = id;
@@ -37,20 +50,27 @@ public class EmpVO {
 		this.point = point;
 		this.deptno = deptno;
 	}
-
 	
 	@Override
 	public String toString() {
 		return "MemberDTO [id=" + id + ", pass=" + pass + ", name=" + name + ", addr=" + addr + ", point=" + point
-				+ ", deptno=" + deptno + "]";
+				+ ", deptno=" + deptno + ", img=" + img +"]";
+	}
+
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
 	}
 
 	public String getId() {
-		System.out.println("getId++++++++++++++");
+		System.out.println("getId++++++++++++++++");
 		return id;
 	}
 	public void setId(String id) {
-		System.out.println("setId++++++++++++++");
+		System.out.println("setId++++++++++++++++++");
 		this.id = id;
 	}
 	public String getPass() {
@@ -83,4 +103,6 @@ public class EmpVO {
 	public void setDeptno(String deptno) {
 		this.deptno = deptno;
 	}
+	
+	
 }

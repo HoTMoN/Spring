@@ -14,7 +14,6 @@
   <script type="text/javascript">
   	$(document).ready(function(){
   		$("#id").on("keyup",function(){
-<<<<<<< HEAD
   			//jQuery에서 Ajax로 요청하기 - get방식
   			//[형식]  $.get(url)
   			//url --> Ajax로 요청할 요청path
@@ -69,7 +68,7 @@
 						<label class="control-label col-sm-2" for="orgname">성명</label>
 						<div class="col-sm-3">
 							<input type="text" id="orgname" name="name"
-								placeholder="성명" class="form-control" minlength="4" required>
+								placeholder="성명" class="form-control" minlength="3" required>
 
 						</div>
 					</div>
@@ -100,7 +99,7 @@
 						<div class="col-sm-3">
 							<input type="text" id="addr" name="addr" 
 							placeholder="주소"
-								class="form-control" minlength="4" required>
+								class="form-control" minlength="2" required>
 
 						</div>
 					</div>

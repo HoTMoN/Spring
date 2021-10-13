@@ -16,6 +16,22 @@
 		}
 	}
 %>
+<script type="text/javascript">
+	$(document).ready(function){
+		$("#id").on("keyup",function(){
+			$.get("/erp/emp/login.do",
+  					{"id":$("#id").val()},
+  					function(data){ //data는 응답되어 오는 데이터를 자동으로  success란에 명시하는 함수의 매개변수로 전달
+  										  //-----------------------  ---> Ajax성공으로 받은 데이터
+  										  //Ajax로 요청해서 응답받은 데이터를 <span>태그의 내부 텍스트로 출력
+  						$("#checkVal").text(data);
+  				},
+  				"text");
+ 	  		});
+  	});
+		}
+	}
+</script>
 </head>
 <body>
 	<form name="login_frm" action="/erp/emp/login.do" method="post">

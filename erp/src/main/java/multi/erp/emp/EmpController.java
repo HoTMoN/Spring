@@ -68,17 +68,25 @@ public class EmpController {
 		}
 		return result;
 	}
-	@RequestMapping(value = "/emp/login.do", method = RequestMethod.GET,
-			produces = "application/text;charset=utf-8")
-	public @ResponseBody String login(EmpVO user) {
-		Boolean state = service.login(user);
-		String result = "";
-		System.out.println(result);
-		if (state) { // 사용자가 입력한 id가 db에 이미 저장되어 있다는 의미
-			result = "사용 불가능한 아이디";
-		} else {
-			result = "사용가능한 아이디";
+	@RequestMapping(value = "/emp/login.do", method = RequestMethod.POST)
+	public ModelAndView login(EmpVO loginUserInfo) {
+		System.out.println(loginUserInfo);
+		ModelAndView mav = new ModelAndView();
+		//DB인증을 받은 user정보
+		EmpVO loginOkUser = service.login(loginUserInfo);
+		String viewName = "";
+		if(loginOkUser!=null) {
+			//로그인성공
+			viewName = "login/ok";
+		}else {
+			//로그인실패
+			viewName = "login";
 		}
-		return result;
+		mav.setViewName(viewName);
+		//view에서 로그인 사용자 정보를 사용하기 때문
+		mav.addObject("loginOkUser", loginOkUser);
+		System.out.println("db연동 완료:"+loginOkUser);
+		return mav;
+		
 	}
 }

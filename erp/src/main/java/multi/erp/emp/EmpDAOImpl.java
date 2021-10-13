@@ -5,8 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
-//MyBatis에서 제공하는 기능을 이용해서 DB 엑세스 - CLRUD처리
+//MyBatis에서 제공하는 기능을 이용해서 DB 액세스 - CLRUD처리
 @Repository
 public class EmpDAOImpl implements EmpDAO {
 	@Autowired
@@ -20,7 +19,7 @@ public class EmpDAOImpl implements EmpDAO {
 
 	@Override
 	public List<EmpVO> getMemberList() {
-		return sqlSession.selectList("erp.emp.list");
+		return  sqlSession.selectList("erp.emp.list");
 	}
 
 	@Override
@@ -30,21 +29,21 @@ public class EmpDAOImpl implements EmpDAO {
 		//=> SqlSession의 메소드 => selectOne
 		EmpVO user = sqlSession.selectOne("erp.emp.idcheck", id);
 		if(user!=null) {
-			result = true; //아이디가 있으면 true
+			result = true;//아이디가 있으면 true
 		}
-		return result; //아이디가 없으면 false
+		return result; //아이디가 없으면 false 
 	}
 
-//	@Override
-//	public boolean login(EmpVO user) {
-//			boolean result = false;
-//		return result;
-//	}
 	@Override
 	public EmpVO login(EmpVO loginUser) {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println("loginUser=>"+loginUser);
+		EmpVO loginOkUser = sqlSession.selectOne("erp.emp.login", loginUser);
+		System.out.println("결과=>"+loginOkUser);
+		return loginOkUser;
 	}
 
-
 }
+
+
+
+
