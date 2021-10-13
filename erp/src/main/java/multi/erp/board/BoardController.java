@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -42,7 +43,7 @@ public class BoardController {
 	//Jackson json라이브러리가 자동으로 ArrayList<BoardVO>를 json으로 변환해서 리턴해준다.
 	@RequestMapping(value = "/board/ajax_list.do", method = RequestMethod.GET,
 			produces = "application/json;charset=utf-8")
-	public ArrayList<BoardVO> categoryList(String category){
+	public @ResponseBody ArrayList<BoardVO> categoryList(String category){
 		ArrayList<BoardVO> boardlist = (ArrayList<BoardVO>)service.findByCategory(category);
 		System.out.println("ajax통신"+boardlist.size());
 		return boardlist;

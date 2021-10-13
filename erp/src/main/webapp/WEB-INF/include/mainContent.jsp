@@ -28,7 +28,7 @@
 		$("#boardCategory>li").each(function(){
 			$(this).click(function(){ //this가 선택한 <li>
 				category = $(this).text();
-				alert("선택됨" + category);
+			//	alert("선택됨" + category);
 				$("#boardCategory>li").removeAttr("class"); //id가 boardCategory인 컴포넌트 하위 엘리먼트 li태그의 모든 class속성을 지운다.
 				$(this).attr("class", "active");//클릭하는 엘리먼트가 선택되도록
 				//ajax로 BoardController의 메소드를 호출
@@ -45,16 +45,15 @@
 					type:"get",
 					data:{"category":category},
 					success : function(data){
-						alert(data);
 						mydata = ""; //데이터를 누적할 변수
 						//조회한 json데이터(ArrayList<BoardVO>) 갯수만큼 출력
 						//Ajax는 데이터만 가져오기 때문에 뷰에 연결하는 작업을 success인 경우 실행할 함수에서 처리한다.
-						for(i=0;i<data.length();i++){
+						for(i=0;i<data.length;i++){
 						/* mydata = mydata + data[i].title + "," + data[i].write_date; */
 						mydata = mydata + "<tr>"+
 	 					"<td class = 'boardContent' style = ''><span id = 'test"+i+"'>"
 														+data[i].title+"</span></td>"+
-						"<td class = 'boardDate' style = ''>"+data[i].write_data+"</td>"+
+						"<td class = 'boardDate' style = ''>"+data[i].write_date+"</td>"+
 						"</tr>"
 						//동적으로 만들어진 뷰에 이벤트 연결
 						//$(document).on("이벤트명","이벤트를 연결할 객체","이벤트가 발생하면 실행할 함수")
@@ -131,8 +130,8 @@
 					<div class="panel-footer">사내소식</div>
 					<div class="panel-body">
 						<ul class="nav nav-tabs" id="boardCategory">
-							<li class="active"><a href="#">최근게시판</a></li>
-							<li><a href="#">업무공지</a></li>
+							<li class="active"><a href="#">게시판</a></li>
+							<li><a href="#">사내소식</a></li>
 							<li><a href="#">경조사</a></li>
 						</ul>
 						<div id="boardMain" style="padding-top: 20px; padding-left: 10px">
