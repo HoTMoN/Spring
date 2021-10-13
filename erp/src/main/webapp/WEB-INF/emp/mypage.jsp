@@ -7,12 +7,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <%
-	EmpVO user = (EmpVO) request.getAttribute(loginOkUser);
+	EmpVO user = (EmpVO) request.getAttribute("loginOkUser");
 %>
 </head>
 <body>
 	<h1>mypage</h1>
-	<h3><%= "loginOkUser" %></h3>
+	<h3><%= user.getName() %></h3>
 	<!--  --------------- -->
 	<!-- db에서 조회한 로그인한 사용자의 성명 -->
 </body>
