@@ -35,4 +35,16 @@ public class EmpDAOImpl implements EmpDAO {
 		return result; //아이디가 없으면 false
 	}
 
+//	@Override
+//	public boolean login(EmpVO user) {
+//			boolean result = false;
+//		return result;
+//	}
+	@Override
+	public EmpVO login(EmpVO loginUser) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 }

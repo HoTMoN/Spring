@@ -68,4 +68,17 @@ public class EmpController {
 		}
 		return result;
 	}
+	@RequestMapping(value = "/emp/login.do", method = RequestMethod.GET,
+			produces = "application/text;charset=utf-8")
+	public @ResponseBody String login(EmpVO user) {
+		Boolean state = service.login(user);
+		String result = "";
+		System.out.println(result);
+		if (state) { // 사용자가 입력한 id가 db에 이미 저장되어 있다는 의미
+			result = "사용 불가능한 아이디";
+		} else {
+			result = "사용가능한 아이디";
+		}
+		return result;
+	}
 }

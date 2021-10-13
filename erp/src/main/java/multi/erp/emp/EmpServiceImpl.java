@@ -26,4 +26,15 @@ public class EmpServiceImpl implements EmpService {
 		return dao.idCheck(id);
 	}
 
+//	@Override
+//	public boolean login(EmpVO user) {
+//		return dao.login(user);
+//	}
+	@Override
+	public EmpVO login(EmpVO loginUser) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 }
