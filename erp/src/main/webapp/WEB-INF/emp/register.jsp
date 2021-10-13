@@ -35,11 +35,7 @@
   						$("#checkVal").text(data);
   				},
   				"text");
-  		});
-=======
-  			location.href = "/erp/emp/idcheck.do?id="+$("#id").val();
-  		})
->>>>>>> branch 'master' of http://github.com/HoTMoN/Spring.git
+ 	  		});
   	});
   	//자바스크립트에서 동기방식으로 요청하기 - 기존에 우리가 웹을 요청해서 응답받아 사용하는 방법
   	//location.href = "/erp/emp/idcheck.do?id="+$("#id").val();  -> 원하는 작업을 표현 불가

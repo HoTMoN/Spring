@@ -40,7 +40,8 @@ public class BoardController {
 	//Ajax로 카테고리별 게시판 데이터를 요청하는 메소드
 	//=> 컨트롤러 메소드처럼 ModelAndView를 리턴하지 않고 일반메소드 처럼 ArrayList<BoardVO>를 리턴하며
 	//Jackson json라이브러리가 자동으로 ArrayList<BoardVO>를 json으로 변환해서 리턴해준다.
-	@RequestMapping(value = "/board/ajax_list.do", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
+	@RequestMapping(value = "/board/ajax_list.do", method = RequestMethod.GET,
+			produces = "application/json;charset=utf-8")
 	public ArrayList<BoardVO> categoryList(String category){
 		ArrayList<BoardVO> boardlist = (ArrayList<BoardVO>)service.findByCategory(category);
 		System.out.println("ajax통신"+boardlist.size());

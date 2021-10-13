@@ -41,24 +41,45 @@
 				success : 요청이 성공하고 호출되는 함수
 				*/
 				$.ajax({
-					url : "/erp/board/ajax_list.do",
-					type : "get",
-					data : {"category":category},
+					url:"/erp/board/ajax_list.do",
+					type:"get",
+					data:{"category":category},
 					success : function(data){
 						alert(data);
-						alert(data[0].title);
+						mydata = ""; //데이터를 누적할 변수
+						//조회한 json데이터(ArrayList<BoardVO>) 갯수만큼 출력
+						//Ajax는 데이터만 가져오기 때문에 뷰에 연결하는 작업을 success인 경우 실행할 함수에서 처리한다.
+						for(i=0;i<data.length();i++){
+						/* mydata = mydata + data[i].title + "," + data[i].write_date; */
+						mydata = mydata + "<tr>"+
+	 					"<td class = 'boardContent' style = ''><span id = 'test"+i+"'>"
+														+data[i].title+"</span></td>"+
+						"<td class = 'boardDate' style = ''>"+data[i].write_data+"</td>"+
+						"</tr>"
+						//동적으로 만들어진 뷰에 이벤트 연결
+						//$(document).on("이벤트명","이벤트를 연결할 객체","이벤트가 발생하면 실행할 함수")
+						$(document).on("click","#test"+i, function() {
+							alert("이벤트연결성공");				
+						})
+						}
 						// 데이터 전송이 성공하면 어떤 방법으로 뷰를 만들 것인지 명시
-					}
+						// 결과를 테이블에 추가
+						$("#mydatalist").empty();
+						$("#mydatalist").append(mydata);
+						
+	 				}
 				})// end ajax
 			})// end click
 		})//end each
 	});//end ready func
+
 </script>
 <title>Insert title here</title>
 </head>
 <body>
-<% ArrayList<BoardVO> boardlist = (ArrayList<BoardVO>) request.getAttribute("boardlist");
-		int size = boardlist.size();
+	<%
+	ArrayList<BoardVO> boardlist = (ArrayList<BoardVO>) request.getAttribute("boardlist");
+	int size = boardlist.size();
 	%>
 	<div class="container">
 		<div class="row">
@@ -109,20 +130,24 @@
 					style="border-color: #edeef1; height: 300px; width: 450px">
 					<div class="panel-footer">사내소식</div>
 					<div class="panel-body">
-						<ul class="nav nav-tabs" id = "boardCategory">
+						<ul class="nav nav-tabs" id="boardCategory">
 							<li class="active"><a href="#">최근게시판</a></li>
 							<li><a href="#">업무공지</a></li>
 							<li><a href="#">경조사</a></li>
 						</ul>
 						<div id="boardMain" style="padding-top: 20px; padding-left: 10px">
-							<table>
-								<%for(int i = 0 ; i < size ; i++){
-									BoardVO board = boardlist.get(i);%>
-									<tr>
-										<td class = "boardContent" style = ""><%= board.getTitle() %></td>
-										<td class = "boardDate" style = ""><%= board.getWrite_date() %></td>
-									</tr>	
-								<%} %>
+							<table id="mydatalist">
+								<%
+								for (int i = 0; i < size; i++) {
+									BoardVO board = boardlist.get(i);
+								%>
+								<tr>
+									<td class="boardContent" style=""><%=board.getTitle()%></td>
+									<td class="boardDate" style=""><%=board.getWrite_date()%></td>
+								</tr>
+								<%
+								}
+								%>
 							</table>
 						</div>
 					</div>
