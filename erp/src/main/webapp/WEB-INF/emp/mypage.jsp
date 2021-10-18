@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <%
-	EmpVO user = (EmpVO) request.getAttribute("loginOkUser");
+	EmpVO user = (EmpVO) session.getAttribute("loginOkUser");
 %>
 </head>
 <body>

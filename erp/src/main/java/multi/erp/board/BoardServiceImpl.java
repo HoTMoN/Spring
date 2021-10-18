@@ -45,7 +45,7 @@ public class BoardServiceImpl implements BoardService, BoardDAO {
 	@Override
 	public List<BoardVO> searchList(String tag, String search) {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.searchList(tag, search);
 	}
 
 	@Override
@@ -57,7 +57,7 @@ public class BoardServiceImpl implements BoardService, BoardDAO {
 	@Override
 	public BoardVO read(String board_no) {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.read(board_no);
 	}
 
 	@Override

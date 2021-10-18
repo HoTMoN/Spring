@@ -14,6 +14,15 @@ import org.springframework.web.servlet.ModelAndView;
 public class BoardController {
 	@Autowired
 	BoardService service;
+	@RequestMapping("/board/search.do")
+	public ModelAndView search(String tag, String search) {
+		ModelAndView mav = new ModelAndView();
+		ArrayList<BoardVO> boardlist = (ArrayList<BoardVO>)service.searchList(tag, search);
+		mav.addObject("boardlist", boardlist);
+		mav.addObject("category", "all");
+		mav.setViewName("board/list");
+		return mav;
+	}
 	@RequestMapping("/board/insert.do")
 	public String insert(BoardVO board) { 
 		//사용자가 입력한 데이터를 꺼내서 dao단으로 넘겨야 하는 작업은 사용자가 입력한 데이터가 잘 넘어오는지 체크(sysout)
@@ -47,5 +56,22 @@ public class BoardController {
 		ArrayList<BoardVO> boardlist = (ArrayList<BoardVO>)service.findByCategory(category);
 		System.out.println("ajax통신"+boardlist.size());
 		return boardlist;
+	}
+	@RequestMapping(value = "/board/read.do")
+	public ModelAndView read(String board_no, String state) {
+		System.out.println("readController=>"+ board_no+","+state);
+		ModelAndView mav = new ModelAndView();
+		//비즈니스메소드 호출
+		BoardVO board = service.read(board_no);
+		String viewName = "";
+		//요청에 따라 뷰 설정
+		if(state.equals("READ")) {
+			viewName = "board/read";
+		}else {
+			viewName = "board/update";
+		}
+		mav.setViewName(viewName);
+		mav.addObject("board", board);
+		return mav;
 	}
 }

@@ -34,7 +34,7 @@
 						<div class="col-md-2 text-right">
 							<label for="id" class="control-label">번호</label>
 						</div>
-						<div class="col-md-8"></div>
+						<div class="col-md-8">${board.board_no }</div>
 					</div>
 					<input type="hidden" name="board_no" value="">
 					<div class="form-group">
@@ -54,7 +54,7 @@
 						<div class="col-sm-10">
 
 							<p class="form-control-static">
-								
+								${board.id }
 							</p>
 						</div>
 					
@@ -70,7 +70,7 @@
 							<div class="col-sm-8">
 								<textarea id="content"
 									style="width: 100%; border: 1; overflow: visible; text-overflow: ellipsis;"
-									rows=15 name="content"></textarea>
+									rows=15 name="content">${board.content}</textarea>
 
 							</div>
 						</div>
